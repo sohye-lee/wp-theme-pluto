@@ -1,0 +1,14 @@
+{
+  "name": "pluto",
+  "version": "1.0.0",
+  "description": "WP Theme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sohye Kim",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^5.0.0"
+  }
+}
