@@ -9,6 +9,8 @@
 
 ?>
     <article>
+        <hr>
+        <?php pluto_post_meta(); ?>
         <?php pluto_post_title(); ?>
         <p><?php the_excerpt(); ?></p>
         <?php pluto_readmore_link(); ?>
@@ -17,7 +19,7 @@
         }
         the_posts_pagination();
     } else { ?>
-    <p>Sorry, no posts matched your criteria.</p>
+    <p><?php  _e('Sorry, no posts matched your criteria.', 'pluto'); ?></p>
     <?php
     }
 ?>
