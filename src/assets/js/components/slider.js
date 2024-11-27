@@ -1,2 +1,2 @@
-const slider = 'slider not found';
+const slider = 'slider not found!!! TEST!!';
 console.log('now loading: ', slider);

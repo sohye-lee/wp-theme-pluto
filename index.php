@@ -10,16 +10,16 @@
 ?>
     <article>
         <hr>
-        <?php pluto_post_meta(); ?>
-        <?php pluto_post_title(); ?>
+        <?php _themename_post_meta(); ?>
+        <?php _themename_post_title(); ?>
         <p><?php the_excerpt(); ?></p>
-        <?php pluto_readmore_link(); ?>
+        <?php _themename_readmore_link(); ?>
     </article>
     <?php
         }
         the_posts_pagination();
     } else { ?>
-    <p><?php  _e('Sorry, no posts matched your criteria.', 'pluto'); ?></p>
+    <p><?php  _e('Sorry, no posts matched your criteria.', '_themename'); ?></p>
     <?php
     }
 ?>

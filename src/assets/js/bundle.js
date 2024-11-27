@@ -1,6 +1,10 @@
 import './components/slider.js';
+import $ from 'jquery'; 
 
 
-let x = 1;
+$('body').click(() => {
+    console.log('jquery working!!!');
+    alert(true);
+ })
+    
 
-console.log(x);
