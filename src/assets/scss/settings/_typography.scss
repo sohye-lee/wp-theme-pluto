@@ -1,0 +1,37 @@
+@use './colors' as *;
+
+$body-font-family: 'DM Sans', sans-serif !default;
+$heading-font-family: 'Bricolage Grotesque', serif !default;
+$mono-font-family: "IBM Plex Mono", Courier, monospace;
+
+$heading-font-weight: 600 !default;
+$heading-lineheight: 1.2 !default;
+$heading-font-style: normal !default;
+$heading-color: inherit !default;
+$heading-margin-bottom: 0.5rem !default;
+
+$font-family-serif: 'serif' !default;
+$small-font-size: 80% !default;
+
+$heading-small-font-color: $color-text-400 !default;
+$paragraph-lineheight: 1.4 !default;
+$paragraph-margin-bottom: 1rem !default;
+
+$heading-styles: (
+    small: (
+        'h1': ('font-size': 38),
+        'h2': ('font-size': 30),
+        'h3': ('font-size': 28),
+        'h4': ('font-size': 24),
+        'h5': ('font-size': 21),
+        'h6': ('font-size': 19),
+    ),
+    medium: (
+        'h1': ('font-size': 55),
+        'h2': ('font-size': 42),
+        'h3': ('font-size': 34),
+        'h4': ('font-size': 28),
+        'h5': ('font-size': 24),
+        'h6': ('font-size': 20),
+    ),
+) !default;

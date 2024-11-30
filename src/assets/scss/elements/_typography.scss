@@ -1,0 +1,207 @@
+@use "sass:map";
+@use '../settings/global' as *;
+@use '../settings/typography' as *;
+@use '../settings/colors' as *;
+@use '../settings/breakpoints' as *;
+@use '../tools/breakpoints' as *;
+@use '../tools/units' as *;
+
+div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin-bottom: $paragraph-margin-bottom;
+    font-size: inherit;
+    line-height: $paragraph-lineheight;
+    -moz-osx-font-smoothing: grayscale;
+    word-break: break-all;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto; 
+}
+
+a {   
+    line-height: inherit;
+    cursor: pointer;
+    border-bottom: 1px solid $color-accent-400;
+    text-decoration: none;
+    color: $color-accent-400;
+    word-break: break-all;
+    word-break: break-word;
+    &:visited {
+        border-bottom: 1px solid;
+    }
+    &:hover {   
+        border-bottom: none;
+    }
+    &:active {   
+        color: $color-primary-400;      
+    }
+    &:focus {   
+        border: none; 
+    }
+    font-size: inherit;
+}
+
+hr {
+    clear: both;
+    max-width: $global-width;
+    height: 0;
+    margin: rem-calc(20) auto;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid $color-gray-200;
+    border-left: 0;
+}
+
+strong, b  {   
+    font-weight: bold;  
+}
+
+em, i {   
+    font-style: italic; 
+}
+
+small {
+    font-size: $small-font-size;
+    line-height: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $heading-font-family;
+    font-style: $heading-font-style;
+    font-weight: $heading-font-weight;
+    color: $heading-color;
+    line-height: $heading-lineheight;
+    margin-bottom: $heading-margin-bottom;
+    text-rendering: optimizeLegibility;
+    word-break: break-word;
+    small {
+        line-height: 0;
+        color: $heading-small-font-color;
+    }
+}
+
+@each $size, $headings in $heading-styles {
+    @include breakpoint($size) {
+        @each $heading, $heading-defs in $headings {
+            $font-size-temp: 1rem;
+            #{$heading} {
+                @if map.has-key($heading-defs, font-size) {
+                    $font-size-temp: rem-calc(map.get($heading-defs, font-size));
+                    font-size: $font-size-temp;
+                }
+            }
+        }
+    }
+}
+
+blockquote {
+    font-style: italic; 
+    margin: 0 0 $paragraph-margin-bottom;
+    padding: rem-calc(20 40 20 40);
+    font-family: $font-family-serif;
+    &, p {
+        line-height: $paragraph-lineheight;
+    }
+}
+
+cite {
+    &:before {
+        content: '—';
+    }
+}
+
+// Lists
+ul, ol, dl {
+    margin-bottom: $paragraph-margin-bottom;
+    list-style-position: outside;
+    line-height: $paragraph-lineheight;
+}
+
+li {
+    font-size: inherit;
+    margin-bottom: 0.5rem;
+}
+
+ul {
+    margin-left: 1.25rem;
+    list-style-type: disc;
+}
+
+ol {
+    margin-left: 1.25rem;
+}
+
+ul, ol {
+    & & {
+        margin: 1rem 0 1rem 1.5rem;
+        font-size: 90%;
+    }
+}
+
+dl {
+    margin-bottom:  1rem;
+    dt {
+      margin-bottom: 0.2rem;
+      font-weight: 600;
+    }
+    dd {
+        margin-bottom: 0.8rem;
+    }
+}
+
+abbr, abbr[title] {
+    border-bottom: 1px dashed $color-gray-200;
+    cursor: help;
+    text-decoration: none;
+}
+
+figure {
+    margin: 0;
+}
+
+pre {
+    font-family: $mono-font-family;
+    margin-bottom: 2.5rem;
+    font-size: 1rem; 
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;
+    > code {
+        display: block;
+        padding: 1rem 1.5rem;
+        white-space: pre;
+    }
+}
+
+code {
+    padding: rem-calc(2 5 1);
+    border: none;
+    background: $color-gray-100;
+    border: 1px solid $color-gray-200;
+    border-radius: 4px;
+    font-family: $mono-font-family;
+    font-size: 1rem; 
+    overflow: auto;
+}
+
+table {
+    border-collapse: collapse;
+    margin-bottom: $paragraph-margin-bottom;
+}
+
+tr {
+    border-bottom: 1px solid $color-gray-100;
+}
+
+th, td {
+    text-align: left;
+    padding: rem-calc(10px);
+}

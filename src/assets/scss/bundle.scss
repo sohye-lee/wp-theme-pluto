@@ -1,3 +1,8 @@
 
+@use './settings/all' as allSettings;
+@use './tools/all' as allTools;
+@use './generic/all' as allGeneric;
+@use './elements/all' as allElements;
+@use './objects/all' as allObjects;
 @use './components/all' as allComponents;
-@use './global/all' as allGlobal;
+@use './utils/all' as allUtils;
