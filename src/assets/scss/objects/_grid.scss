@@ -4,7 +4,7 @@
 @use '../settings/breakpoints' as *;
 
 $columns: 12;
-$gutter: 20;
+$gutter: 32;
 
 .o-container {
     max-width: rem-calc($global-width);
@@ -19,6 +19,7 @@ $gutter: 20;
     margin-right: - rem-calc(calc($gutter/2));
     margin-left: - rem-calc(calc($gutter/2));
     flex-wrap: wrap;
+    row-gap: rem-calc($gutter);
     &__column {
         width: calc(100% - #{rem-calc($gutter)});
         flex: 0 0 auto;

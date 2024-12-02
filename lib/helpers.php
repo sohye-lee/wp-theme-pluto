@@ -9,25 +9,25 @@
 
 
     function _themename_post_title() {
-        echo '<h2 class="post-title">';
+        echo '<h2 class="post-title c-post__single-title">';
         echo '<a href="' . esc_url( get_permalink() ) . '" title="'. esc_attr( the_title_attribute(['echo' => false]) ) .'">' . esc_html__( get_the_title(), '_themename' ) . '</a>';
         echo '</h2>';
     }
 
     function _themename_post_tags() {
-        $terms = get_terms();
+        $terms = get_the_tags();
         if ($terms) {
-            echo '<div class="">';
+            echo '<div class="c-post__tags"><ul>';
             foreach($terms as $term) {
-                echo '<a class="term">'. esc_html__( $term, '_themename' ) .'</a>';
+                echo '<li><a class="term">'. esc_html__( $term->name, '_themename' ) .'</a></li>';
             }
-            echo '</div>';
+            echo '</ul></div>';
         }
     }
 
     function _themename_readmore_link () {
         echo '<div><a href="'. esc_url( get_permalink() ) .'" class="btn btn-outline btn-dark">';
-        printf( wp_kses(__('Read More <span class="sr-only"> about %s</span>' , '_themename' ), 
+        printf( wp_kses(__('Read More <span class="u-screen-reader-text"> about %s</span>' , '_themename' ), 
             [
                 'span' => [
                     'class' => []

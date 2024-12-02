@@ -1,0 +1,186 @@
+@use '../settings/colors' as *;
+@use '../tools/units' as *;
+
+.c-post {
+    // background-color: $color-white;
+    // border: 1px solid $color-gray-200;
+    // box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.05);
+    // padding: rem-calc(20);
+    overflow: hidden;
+    &.sticky {
+        // border-left: 5px solid $color-primary-300;
+    }
+    &.format-quote {
+        blockquote {
+            background-color: $color-primary-300;
+            color: $color-white;
+            padding: rem-calc(20);
+            font-size: rem-calc(20);
+            a {
+                color: $color-white;
+            }
+        }
+    }
+    &.format-link {
+        .c-post__excerpt p {
+            background-color: $color-primary-300;
+            padding: rem-calc(20);
+            font-size: rem-calc(20);
+            text-align: center;
+            a {
+                color: $color-white;
+            }
+        }
+    }
+    p:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    &__header {
+        margin-bottom: rem-calc(20);
+    }
+    &__footer {
+        overflow: hidden;
+        border-top: 1px solid $color-gray-200;
+        margin: rem-calc(30px -20px -20px -20px);
+        padding: rem-calc(20px);
+    }
+    &__tags {
+        margin: rem-calc(20 0 16);
+        ul {
+            list-style: none;
+            margin: 0;
+            display: flex;
+            align-items: stretch;
+            flex-wrap: wrap;
+            gap: 8px;
+            li {
+                display: inline-block;
+                margin: 0;
+                a {
+                    // background-color: $color-gray-100;
+                    border-bottom: none;
+                    // margin-right: 10px;
+                    padding: rem-calc(4 10);
+                    display: inline-block;
+                    font-size: rem-calc(14px);
+                    color: $color-black;
+                    border: 1px solid $color-black;
+                    border-radius: 24px;
+
+                }
+            }
+        }
+    }
+    &__audio {
+        width: 100%;
+        margin: rem-calc(0 0 20 0);
+    }
+    &__thumbnail, &__gallery, &__video {
+        margin: rem-calc(-20 -20 20 -20);
+        background-color: $color-gray-100;
+        text-align: center;
+    }
+    &__thumbnail {
+        display: block;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        background-color: $color-gray-200;
+    }
+    &__excerpt {
+        color: $color-gray-300;
+    }
+    &__meta {
+        color: $color-gray-300;
+    }
+    &__title {
+        font-weight: 600;
+        font-size: rem-calc(28);
+        a {
+            color: $color-black;
+            border-bottom: none;
+        }
+    }
+    &__single-title {
+        font-weight: 500;
+        font-size: rem-calc(20);
+        a {
+            color: $color-black;
+            border-bottom: none;
+        }
+    }
+}
+
+
+.o-single-post-full {
+    .c-post {
+        &__inner {
+            max-width: 50rem;
+            margin: 0 auto;
+        }
+    }
+    .alignwide {
+        margin-left: -100px;
+        margin-right: -100px;
+        max-width: calc(50rem + 200px);
+    }
+    .alignfull {
+        margin-left: calc(-12.5rem + 0.625rem);
+        margin-right: calc(-12.5rem + 0.625rem);
+        max-width: calc(75rem - 1.25rem);
+        width: auto;
+        img {
+            width: 100%;
+        }
+    }
+    .wp-block-cover-image {
+        &.alignwide, &.alignfull {
+            width: auto;
+        } 
+    }
+}
+.wp-block-embed.is-type-video {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 35px;
+    height: 0;
+    overflow: hidden;
+    iframe {
+        position: absolute;
+        top:0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.c-post-author {
+    background-color: $color-white;
+    border: 1px solid $color-gray-200;
+    box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.05);
+    padding: rem-calc(20);
+    display: flex;
+    &__avatar {
+        width: 120px;
+        margin-right: rem-calc(25);
+    }
+    &__content {
+        flex: 1;
+    }
+    &__info {
+        margin-bottom: rem-calc(15);
+        font-size: rem-calc(14);
+    }
+    &__title {
+        font-size: rem-calc(24);
+        font-weight: 600;
+        a {
+            border-bottom: none;
+            color: inherit;
+        }
+    }
+    &__desc {
+        color: $color-gray-300;
+    }
+}
